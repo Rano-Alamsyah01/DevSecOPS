@@ -141,8 +141,8 @@
                 "text": "User Browser\n"
               },
               "body": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
                 "strokeDasharray": null
               }
             },
@@ -239,14 +239,14 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "providesAuthentication": false,
               "threats": [
                 {
                   "id": "a0195d63-a53f-40e3-a6ae-1c79a4c6f370",
                   "title": "Penyalahgunaan Kredensial Pengguna",
-                  "status": "Open",
-                  "severity": "TBD",
+                  "status": "Mitigated",
+                  "severity": "High",
                   "type": "Spoofing",
                   "description": "Penyerang menggunakan kredensial pengguna yang diperoleh secara tidak sah untuk menyamar sebagai pengguna yang sah dan mengakses aplikasi.",
                   "mitigation": "Menerapkan Multi-Factor Authentication (MFA), kebijakan password yang kuat, serta rate limiting pada proses login.",
@@ -258,8 +258,8 @@
                 {
                   "id": "ada6499e-a7ff-45e5-9056-ad2625cc19e1",
                   "title": "Penyangkalan Aktivitas Pengguna",
-                  "status": "Open",
-                  "severity": "TBD",
+                  "status": "Mitigated",
+                  "severity": "Medium",
                   "type": "Repudiation",
                   "description": "Pengguna dapat menyangkal aktivitas yang dilakukan melalui aplikasi apabila aktivitas tersebut tidak memiliki pencatatan atau audit log yang memadai.",
                   "mitigation": "Menerapkan audit logging untuk aktivitas autentikasi dan transaksi serta menyimpan timestamp dan identitas pengguna pada setiap aktivitas penting.",
@@ -270,8 +270,8 @@
                 }
               ],
               "threatFrequency": {
-                "spoofing": 1,
-                "repudiation": 1
+                "spoofing": 3,
+                "repudiation": 2
               }
             }
           },
@@ -289,8 +289,8 @@
                 "text": "API Gateway\n"
               },
               "body": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
                 "strokeDasharray": null
               }
             },
@@ -387,7 +387,7 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
@@ -396,11 +396,11 @@
                 {
                   "id": "14968f71-92eb-4e3f-bac7-a468a3c90d58",
                   "title": "API Resource Exhaustion",
-                  "status": "Open",
-                  "severity": "TBD",
+                  "status": "Mitigated",
+                  "severity": "High",
                   "type": "Denial of service",
                   "description": "Penyerang mengirimkan request dalam jumlah besar ke API Gateway sehingga sumber daya layanan terkuras dan request dari pengguna yang sah dapat terganggu.",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "mitigation": "Terapkan rate limiting dan request throttling pada API Gateway, batasi jumlah request berdasarkan IP atau identitas pengguna, serta lakukan monitoring terhadap pola request yang tidak normal.",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 21,
@@ -412,7 +412,7 @@
                 "tampering": 0,
                 "repudiation": 0,
                 "informationDisclosure": 0,
-                "denialOfService": 1,
+                "denialOfService": 3,
                 "elevationOfPrivilege": 0
               }
             }
@@ -529,8 +529,8 @@
                 "text": "Auth Service"
               },
               "body": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
                 "strokeDasharray": null
               }
             },
@@ -627,7 +627,7 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
@@ -636,7 +636,7 @@
                 {
                   "id": "705652af-df10-4223-aa8f-43eb4baed8b7",
                   "title": "Akses Hak Istimewa Tanpa Otorisasi",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "High",
                   "type": "Elevation of privilege",
                   "description": "Penyerang dapat memperoleh hak akses yang lebih tinggi tanpa melalui proses otorisasi yang sesuai, sehingga dapat mengakses fungsi atau data yang seharusnya hanya tersedia bagi pengguna dengan hak tertentu.",
@@ -653,7 +653,7 @@
                 "repudiation": 0,
                 "informationDisclosure": 0,
                 "denialOfService": 0,
-                "elevationOfPrivilege": 1
+                "elevationOfPrivilege": 2
               }
             }
           },
@@ -671,8 +671,8 @@
                 "text": "Order Service"
               },
               "body": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
                 "strokeDasharray": null
               }
             },
@@ -769,7 +769,7 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
@@ -778,11 +778,11 @@
                 {
                   "id": "2f5cd93d-6b9f-449a-82c8-475c98ff858a",
                   "title": "Modifikasi Data Pesanan",
-                  "status": "Open",
-                  "severity": "TBD",
+                  "status": "Mitigated",
+                  "severity": "High",
                   "type": "Tampering",
                   "description": "Penyerang dapat memodifikasi data pesanan secara tidak sah sehingga informasi atau transaksi pesanan tidak sesuai dengan permintaan pengguna.",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "mitigation": "Terapkan validasi input pada Order Service, authorization untuk setiap operasi perubahan order, gunakan parameterized query, dan catat setiap perubahan data pesanan melalui audit logging.",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 22,
@@ -791,7 +791,7 @@
               ],
               "threatFrequency": {
                 "spoofing": 0,
-                "tampering": 1,
+                "tampering": 3,
                 "repudiation": 0,
                 "informationDisclosure": 0,
                 "denialOfService": 0,
@@ -813,8 +813,8 @@
                 "text": "Payment Gateway"
               },
               "body": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
                 "strokeDasharray": null
               }
             },
@@ -911,7 +911,7 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
@@ -920,8 +920,8 @@
                 {
                   "id": "1385acb9-acfa-4b97-b5a9-5a98cd9b5381",
                   "title": "Gangguan Layanan Payment Gateway",
-                  "status": "Open",
-                  "severity": "TBD",
+                  "status": "Mitigated",
+                  "severity": "High",
                   "type": "Denial of service",
                   "description": "Penyerang dapat mengirimkan request pembayaran dalam jumlah besar sehingga membebani Payment Gateway dan menyebabkan proses checkout terganggu atau tidak tersedia bagi pengguna yang sah.",
                   "mitigation": "Terapkan rate limiting pada endpoint pembayaran, validasi request sebelum diproses, gunakan monitoring terhadap lonjakan traffic, dan terapkan mekanisme proteksi terhadap request berlebihan.",
@@ -936,7 +936,7 @@
                 "tampering": 0,
                 "repudiation": 0,
                 "informationDisclosure": 0,
-                "denialOfService": 1,
+                "denialOfService": 2,
                 "elevationOfPrivilege": 0
               }
             }
@@ -1196,13 +1196,11 @@
                 "text": "PostgreSQL DB"
               },
               "topLine": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "strokeWidth": 1.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "strokeWidth": 1.5,
                 "strokeDasharray": null
               }
             },
@@ -1299,7 +1297,7 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
@@ -1309,8 +1307,8 @@
                 {
                   "id": "8c772d5d-40f8-406d-bb4e-c2e3184d6a5c",
                   "title": "Kebocoran Data Pengguna dan Transaksi",
-                  "status": "Open",
-                  "severity": "TBD",
+                  "status": "Mitigated",
+                  "severity": "High",
                   "type": "Information disclosure",
                   "description": "Data pengguna dan transaksi yang tersimpan pada PostgreSQL DB dapat terekspos kepada pihak yang tidak berwenang akibat akses database yang tidak terlindungi atau kontrol akses yang tidak memadai.",
                   "mitigation": "Terapkan kontrol akses berbasis hak pengguna pada database, enkripsi data sensitif, gunakan kredensial database dengan prinsip least privilege, dan batasi akses database hanya dari service yang membutuhkan.",
@@ -1323,17 +1321,23 @@
               "threatFrequency": {
                 "tampering": 0,
                 "repudiation": 0,
-                "informationDisclosure": 1,
+                "informationDisclosure": 2,
                 "denialOfService": 0
               }
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "stroke": "#333333",
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1354,7 +1358,7 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "isBidirectional": false,
               "isEncrypted": true,
               "isPublicNetwork": false,
@@ -1363,8 +1367,8 @@
                 {
                   "id": "6584cc98-7f2c-4ae4-b55d-1b91015aef1b",
                   "title": "Manipulasi Payment Request",
-                  "status": "Open",
-                  "severity": "TBD",
+                  "status": "Mitigated",
+                  "severity": "High",
                   "type": "Tampering",
                   "description": "Penyerang dapat mencoba mengubah parameter pada payment request, seperti nominal atau informasi transaksi, sebelum request diproses oleh Payment Gateway.",
                   "mitigation": "Gunakan HTTPS untuk komunikasi, lakukan validasi nominal dan parameter pembayaran di sisi server, serta jangan mempercayai nilai pembayaran yang berasal langsung dari client.",
@@ -1378,7 +1382,7 @@
                 "e0b9b972-ba2c-45ba-ae8a-002650a4f2ac"
               ],
               "threatFrequency": {
-                "tampering": 1,
+                "tampering": 2,
                 "informationDisclosure": 0,
                 "denialOfService": 0
               }
@@ -1500,8 +1504,7 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "stroke": "#333333",
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1522,7 +1525,7 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "isBidirectional": false,
               "isEncrypted": true,
               "isPublicNetwork": false,
@@ -1531,7 +1534,7 @@
                 {
                   "id": "49493b18-5667-4d5a-bda1-ea7920534ad7",
                   "title": "Modifikasi Authentication Request",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "High",
                   "type": "Tampering",
                   "description": "Penyerang memodifikasi parameter atau data pada authentication request untuk memengaruhi proses autentikasi atau memperoleh akses secara tidak sah.",
@@ -1546,7 +1549,7 @@
                 "e0b9b972-ba2c-45ba-ae8a-002650a4f2ac"
               ],
               "threatFrequency": {
-                "tampering": 1,
+                "tampering": 3,
                 "informationDisclosure": 0,
                 "denialOfService": 0
               }
@@ -1569,8 +1572,7 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "stroke": "#333333",
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1591,7 +1593,7 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "isBidirectional": true,
               "isEncrypted": false,
               "isPublicNetwork": false,
@@ -1600,7 +1602,7 @@
                 {
                   "id": "099410c9-617b-417b-a86e-e307d14d79b9",
                   "title": "Modifikasi Data Pesanan",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "High",
                   "type": "Tampering",
                   "description": "Penyerang dapat memodifikasi data pesanan secara tidak sah, seperti jumlah, detail, atau status pesanan, sehingga data transaksi tidak lagi sesuai dengan permintaan pengguna.",
@@ -1616,7 +1618,7 @@
                 "5a346009-a07e-4a86-acb1-ba22c0a35562"
               ],
               "threatFrequency": {
-                "tampering": 1,
+                "tampering": 2,
                 "informationDisclosure": 0,
                 "denialOfService": 0
               }
