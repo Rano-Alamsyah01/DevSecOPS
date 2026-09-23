@@ -76,13 +76,13 @@
               "isTrustBoundary": true,
               "hasOpenThreats": false,
               "crossingFlows": [
-                "92d72893-a929-4f26-9285-a7540fca7d01",
                 "cc5c5b3f-d28e-4bba-bc0f-497baac283c4",
                 "47c8126d-97e6-4126-84af-52a2178d6a6e",
-                "b9473971-b03e-4c2d-bd3d-5fb8c29658ce",
                 "5524f366-98e8-46c8-ae5c-ed6d40ba1198",
                 "884ea300-cd32-4fe6-883b-8a3660b5156a",
-                "d4f15d68-e280-4782-8fe9-95b4d279e058"
+                "b9473971-b03e-4c2d-bd3d-5fb8c29658ce",
+                "d4f15d68-e280-4782-8fe9-95b4d279e058",
+                "92d72893-a929-4f26-9285-a7540fca7d01"
               ],
               "containedElements": [
                 "d0a9a7cf-5cdb-4551-80e2-7492b50c3adf",
@@ -117,9 +117,9 @@
               "hasOpenThreats": false,
               "crossingFlows": [
                 "47c8126d-97e6-4126-84af-52a2178d6a6e",
-                "b9473971-b03e-4c2d-bd3d-5fb8c29658ce",
                 "5524f366-98e8-46c8-ae5c-ed6d40ba1198",
-                "884ea300-cd32-4fe6-883b-8a3660b5156a"
+                "884ea300-cd32-4fe6-883b-8a3660b5156a",
+                "b9473971-b03e-4c2d-bd3d-5fb8c29658ce"
               ],
               "containedElements": [
                 "be0f2a25-b730-4f9f-8687-81f76303c6cd",
@@ -141,8 +141,8 @@
                 "text": "User Browser\n"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -239,9 +239,40 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "a0195d63-a53f-40e3-a6ae-1c79a4c6f370",
+                  "title": "Penyalahgunaan Kredensial Pengguna",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Spoofing",
+                  "description": "Penyerang menggunakan kredensial pengguna yang diperoleh secara tidak sah untuk menyamar sebagai pengguna yang sah dan mengakses aplikasi.",
+                  "mitigation": "Menerapkan Multi-Factor Authentication (MFA), kebijakan password yang kuat, serta rate limiting pada proses login.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 13,
+                  "score": ""
+                },
+                {
+                  "id": "ada6499e-a7ff-45e5-9056-ad2625cc19e1",
+                  "title": "Penyangkalan Aktivitas Pengguna",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Repudiation",
+                  "description": "Pengguna dapat menyangkal aktivitas yang dilakukan melalui aplikasi apabila aktivitas tersebut tidak memiliki pencatatan atau audit log yang memadai.",
+                  "mitigation": "Menerapkan audit logging untuk aktivitas autentikasi dan transaksi serta menyimpan timestamp dan identitas pengguna pada setiap aktivitas penting.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 14,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "repudiation": 1
+              }
             }
           },
           {
@@ -384,104 +415,6 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Login Request [HTTPS]",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": [
-                "f9514af9-3fa4-41a9-87aa-f4fd1185a6d0"
-              ]
-            },
-            "labels": [
-              "Login Request [HTTPS]"
-            ],
-            "id": "c39ae501-7c12-4666-896d-317575fd548b",
-            "source": {
-              "cell": "2c71ee2d-5854-4bb7-9863-a28c6f7088c9",
-              "port": "ef092569-223c-41c0-adcc-752fe263980c"
-            },
-            "target": {
-              "cell": "338ef840-2cba-4181-96cf-00f9f63f096b",
-              "port": "97e86c0b-0ed5-4794-9dbe-607e1b8efe86"
-            },
-            "vertices": []
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Authentication Request",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": [
-                "e0b9b972-ba2c-45ba-ae8a-002650a4f2ac"
-              ]
-            },
-            "labels": [
-              "Authentication Request"
-            ],
-            "id": "92d72893-a929-4f26-9285-a7540fca7d01",
-            "source": {
-              "cell": "338ef840-2cba-4181-96cf-00f9f63f096b",
-              "port": "02487600-3236-4a1c-9b95-bc5582c23e10"
-            },
-            "target": {
-              "cell": "d0a9a7cf-5cdb-4551-80e2-7492b50c3adf",
-              "port": "97e86c0b-0ed5-4794-9dbe-607e1b8efe86"
-            },
-            "vertices": []
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
               "name": "Create Order Request (HTTPS)",
               "description": "",
               "outOfScope": false,
@@ -560,65 +493,6 @@
               "port": "1a46d5fe-d7f7-4756-8dd9-8bc3b6c4125e"
             },
             "vertices": []
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Order Data",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": [
-                "e0b9b972-ba2c-45ba-ae8a-002650a4f2ac",
-                "5a346009-a07e-4a86-acb1-ba22c0a35562"
-              ]
-            },
-            "labels": [
-              "Order Data"
-            ],
-            "id": "b9473971-b03e-4c2d-bd3d-5fb8c29658ce",
-            "source": {
-              "cell": "3cab4ada-a247-4e13-b7e0-2400a253cf91",
-              "port": "02487600-3236-4a1c-9b95-bc5582c23e10"
-            },
-            "target": {
-              "cell": "49deda3a-f654-4372-88bc-a403de22ae57",
-              "port": "1a46d5fe-d7f7-4756-8dd9-8bc3b6c4125e"
-            },
-            "vertices": [
-              {
-                "x": -290,
-                "y": -258
-              },
-              {
-                "x": -90,
-                "y": -330
-              }
-            ]
           },
           {
             "shape": "flow",
@@ -768,6 +642,134 @@
             "vertices": []
           },
           {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Login Request [HTTPS]",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": false,
+              "protocol": "https",
+              "threats": [],
+              "trustBoundaryIds": [
+                "f9514af9-3fa4-41a9-87aa-f4fd1185a6d0"
+              ]
+            },
+            "labels": [
+              "Login Request [HTTPS]"
+            ],
+            "id": "c39ae501-7c12-4666-896d-317575fd548b",
+            "source": {
+              "cell": "2c71ee2d-5854-4bb7-9863-a28c6f7088c9",
+              "port": "ef092569-223c-41c0-adcc-752fe263980c"
+            },
+            "target": {
+              "cell": "338ef840-2cba-4181-96cf-00f9f63f096b",
+              "port": "97e86c0b-0ed5-4794-9dbe-607e1b8efe86"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Order Data",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "099410c9-617b-417b-a86e-e307d14d79b9",
+                  "title": "Modifikasi Data Pesanan",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Penyerang dapat memodifikasi data pesanan secara tidak sah, seperti jumlah, detail, atau status pesanan, sehingga data transaksi tidak lagi sesuai dengan permintaan pengguna.",
+                  "mitigation": "Terapkan validasi input di sisi server, gunakan kontrol akses untuk membatasi perubahan data pesanan, dan gunakan transaksi database serta mekanisme integritas data untuk mencegah perubahan yang tidak sah.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 17,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [
+                "e0b9b972-ba2c-45ba-ae8a-002650a4f2ac",
+                "5a346009-a07e-4a86-acb1-ba22c0a35562"
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "Order Data"
+            ],
+            "id": "b9473971-b03e-4c2d-bd3d-5fb8c29658ce",
+            "source": {
+              "cell": "3cab4ada-a247-4e13-b7e0-2400a253cf91",
+              "port": "02487600-3236-4a1c-9b95-bc5582c23e10"
+            },
+            "target": {
+              "cell": "49deda3a-f654-4372-88bc-a403de22ae57",
+              "port": "1a46d5fe-d7f7-4756-8dd9-8bc3b6c4125e"
+            },
+            "vertices": [
+              {
+                "x": -290,
+                "y": -258
+              },
+              {
+                "x": -90,
+                "y": -330
+              }
+            ]
+          },
+          {
             "position": {
               "x": -580,
               "y": -478
@@ -781,8 +783,8 @@
                 "text": "Auth Service"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -879,12 +881,34 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "705652af-df10-4223-aa8f-43eb4baed8b7",
+                  "title": "Akses Hak Istimewa Tanpa Otorisasi",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Elevation of privilege",
+                  "description": "Penyerang dapat memperoleh hak akses yang lebih tinggi tanpa melalui proses otorisasi yang sesuai, sehingga dapat mengakses fungsi atau data yang seharusnya hanya tersedia bagi pengguna dengan hak tertentu.",
+                  "mitigation": "Terapkan Role-Based Access Control (RBAC), lakukan pemeriksaan authorization pada setiap endpoint yang membutuhkan hak khusus, dan jangan hanya mengandalkan autentikasi pengguna.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 15,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 1
+              }
             }
           },
           {
@@ -1021,8 +1045,8 @@
                 "text": "Payment Gateway"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1119,12 +1143,34 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "1385acb9-acfa-4b97-b5a9-5a98cd9b5381",
+                  "title": "Gangguan Layanan Payment Gateway",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "Penyerang dapat mengirimkan request pembayaran dalam jumlah besar sehingga membebani Payment Gateway dan menyebabkan proses checkout terganggu atau tidak tersedia bagi pengguna yang sah.",
+                  "mitigation": "Terapkan rate limiting pada endpoint pembayaran, validasi request sebelum diproses, gunakan monitoring terhadap lonjakan traffic, dan terapkan mekanisme proteksi terhadap request berlebihan.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 19,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 1,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -1369,55 +1415,6 @@
             }
           },
           {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 17,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": " Payment Request [HTTPS]",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": [
-                "e0b9b972-ba2c-45ba-ae8a-002650a4f2ac"
-              ]
-            },
-            "labels": [
-              " Payment Request [HTTPS]"
-            ],
-            "id": "d4f15d68-e280-4782-8fe9-95b4d279e058",
-            "source": {
-              "cell": "338ef840-2cba-4181-96cf-00f9f63f096b",
-              "port": "02487600-3236-4a1c-9b95-bc5582c23e10"
-            },
-            "target": {
-              "cell": "2415c25e-3096-4ab3-bce2-3a9c2136b08a",
-              "port": "97e86c0b-0ed5-4794-9dbe-607e1b8efe86"
-            },
-            "vertices": []
-          },
-          {
             "position": {
               "x": 60,
               "y": -398
@@ -1431,11 +1428,13 @@
                 "text": "PostgreSQL DB"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1532,13 +1531,311 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "8c772d5d-40f8-406d-bb4e-c2e3184d6a5c",
+                  "title": "Kebocoran Data Pengguna dan Transaksi",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Data pengguna dan transaksi yang tersimpan pada PostgreSQL DB dapat terekspos kepada pihak yang tidak berwenang akibat akses database yang tidak terlindungi atau kontrol akses yang tidak memadai.",
+                  "mitigation": "Terapkan kontrol akses berbasis hak pengguna pada database, enkripsi data sensitif, gunakan kredensial database dengan prinsip least privilege, dan batasi akses database hanya dari service yang membutuhkan.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 18,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 19,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": " Payment Request [HTTPS]",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "6584cc98-7f2c-4ae4-b55d-1b91015aef1b",
+                  "title": "Manipulasi Payment Request",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Penyerang dapat mencoba mengubah parameter pada payment request, seperti nominal atau informasi transaksi, sebelum request diproses oleh Payment Gateway.",
+                  "mitigation": "Gunakan HTTPS untuk komunikasi, lakukan validasi nominal dan parameter pembayaran di sisi server, serta jangan mempercayai nilai pembayaran yang berasal langsung dari client.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 20,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [
+                "e0b9b972-ba2c-45ba-ae8a-002650a4f2ac"
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              " Payment Request [HTTPS]"
+            ],
+            "id": "d4f15d68-e280-4782-8fe9-95b4d279e058",
+            "source": {
+              "cell": "338ef840-2cba-4181-96cf-00f9f63f096b",
+              "port": "02487600-3236-4a1c-9b95-bc5582c23e10"
+            },
+            "target": {
+              "cell": "2415c25e-3096-4ab3-bce2-3a9c2136b08a",
+              "port": "97e86c0b-0ed5-4794-9dbe-607e1b8efe86"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 20,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Authentication Request",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "49493b18-5667-4d5a-bda1-ea7920534ad7",
+                  "title": "Modifikasi Authentication Request",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Penyerang memodifikasi parameter atau data pada authentication request untuk memengaruhi proses autentikasi atau memperoleh akses secara tidak sah.",
+                  "mitigation": "Gunakan HTTPS untuk komunikasi, lakukan validasi dan sanitasi input pada server, serta validasi token atau kredensial sebelum permintaan diproses.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 16,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [
+                "e0b9b972-ba2c-45ba-ae8a-002650a4f2ac"
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "Authentication Request"
+            ],
+            "id": "92d72893-a929-4f26-9285-a7540fca7d01",
+            "source": {
+              "cell": "338ef840-2cba-4181-96cf-00f9f63f096b",
+              "port": "02487600-3236-4a1c-9b95-bc5582c23e10"
+            },
+            "target": {
+              "cell": "d0a9a7cf-5cdb-4551-80e2-7492b50c3adf",
+              "port": "97e86c0b-0ed5-4794-9dbe-607e1b8efe86"
+            },
+            "vertices": [],
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead"
+              ],
+              "name": null
             }
           }
         ],
@@ -1547,6 +1844,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "April Rustianto",
-    "threatTop": 0
+    "threatTop": 20
   }
 }
