@@ -81,8 +81,8 @@
                 "cc5c5b3f-d28e-4bba-bc0f-497baac283c4",
                 "d4f15d68-e280-4782-8fe9-95b4d279e058",
                 "5524f366-98e8-46c8-ae5c-ed6d40ba1198",
-                "b9473971-b03e-4c2d-bd3d-5fb8c29658ce",
                 "92d72893-a929-4f26-9285-a7540fca7d01",
+                "b9473971-b03e-4c2d-bd3d-5fb8c29658ce",
                 "47c8126d-97e6-4126-84af-52a2178d6a6e"
               ],
               "containedElements": [
@@ -235,7 +235,7 @@
             "data": {
               "type": "tm.Actor",
               "name": "User Browser\n",
-              "description": "",
+              "description": "Browser yang digunakan pengguna untuk mengakses aplikasi.",
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
@@ -278,7 +278,7 @@
           {
             "position": {
               "x": -1050,
-              "y": -308.0000000000001
+              "y": -313.0000000000001
             },
             "size": {
               "width": 160,
@@ -289,8 +289,8 @@
                 "text": "API Gateway\n"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -383,16 +383,38 @@
             "data": {
               "type": "tm.Process",
               "name": "API Gateway\n",
-              "description": "",
+              "description": "Gateway yang menerima request dari client dan meneruskan request ke service internal.",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "14968f71-92eb-4e3f-bac7-a468a3c90d58",
+                  "title": "API Resource Exhaustion",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "Penyerang mengirimkan request dalam jumlah besar ke API Gateway sehingga sumber daya layanan terkuras dan request dari pengguna yang sah dapat terganggu.",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 21,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 1,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -601,7 +623,7 @@
             "data": {
               "type": "tm.Process",
               "name": "Auth Service",
-              "description": "",
+              "description": "Service untuk melakukan autentikasi dan otorisasi pengguna.",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -649,8 +671,8 @@
                 "text": "Order Service"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -743,16 +765,38 @@
             "data": {
               "type": "tm.Process",
               "name": "Order Service",
-              "description": "",
+              "description": "Service untuk memproses dan mengelola pesanan pengguna.",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "2f5cd93d-6b9f-449a-82c8-475c98ff858a",
+                  "title": "Modifikasi Data Pesanan",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Penyerang dapat memodifikasi data pesanan secara tidak sah sehingga informasi atau transaksi pesanan tidak sesuai dengan permintaan pengguna.",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 22,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -863,7 +907,7 @@
             "data": {
               "type": "tm.Process",
               "name": "Payment Gateway",
-              "description": "",
+              "description": "Service untuk memproses transaksi pembayaran.",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -1005,7 +1049,7 @@
             "data": {
               "type": "tm.Actor",
               "name": "Payment API",
-              "description": "",
+              "description": "API yang digunakan untuk komunikasi terkait proses pembayaran.",
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
@@ -1125,7 +1169,7 @@
             "data": {
               "type": "tm.Store",
               "name": "Session Store",
-              "description": "",
+              "description": "Penyimpanan token sesi yang digunakan oleh sistem.",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -1251,7 +1295,7 @@
             "data": {
               "type": "tm.Store",
               "name": "PostgreSQL DB",
-              "description": "",
+              "description": "Database untuk menyimpan data pengguna dan transaksi.",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -1374,7 +1418,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "Store Token",
-              "description": "",
+              "description": "Penyimpanan token sesi atau token pembayaran oleh Payment Gateway pada Session Store.",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
@@ -1382,7 +1426,7 @@
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
-              "protocol": "",
+              "protocol": "redis",
               "threats": [],
               "trustBoundaryIds": [
                 "e0b9b972-ba2c-45ba-ae8a-002650a4f2ac",
@@ -1402,85 +1446,6 @@
               "port": "1a46d5fe-d7f7-4756-8dd9-8bc3b6c4125e"
             },
             "vertices": []
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 22,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Read/Write Order",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": true,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [
-                {
-                  "id": "099410c9-617b-417b-a86e-e307d14d79b9",
-                  "title": "Modifikasi Data Pesanan",
-                  "status": "Open",
-                  "severity": "High",
-                  "type": "Tampering",
-                  "description": "Penyerang dapat memodifikasi data pesanan secara tidak sah, seperti jumlah, detail, atau status pesanan, sehingga data transaksi tidak lagi sesuai dengan permintaan pengguna.",
-                  "mitigation": "Terapkan validasi input di sisi server, gunakan kontrol akses untuk membatasi perubahan data pesanan, dan gunakan transaksi database serta mekanisme integritas data untuk mencegah perubahan yang tidak sah.",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 17,
-                  "score": ""
-                }
-              ],
-              "trustBoundaryIds": [
-                "e0b9b972-ba2c-45ba-ae8a-002650a4f2ac",
-                "5a346009-a07e-4a86-acb1-ba22c0a35562"
-              ],
-              "threatFrequency": {
-                "tampering": 1,
-                "informationDisclosure": 0,
-                "denialOfService": 0
-              }
-            },
-            "labels": [
-              "Read/Write Order"
-            ],
-            "id": "b9473971-b03e-4c2d-bd3d-5fb8c29658ce",
-            "source": {
-              "cell": "3cab4ada-a247-4e13-b7e0-2400a253cf91",
-              "port": "02487600-3236-4a1c-9b95-bc5582c23e10"
-            },
-            "target": {
-              "cell": "49deda3a-f654-4372-88bc-a403de22ae57",
-              "port": "1a46d5fe-d7f7-4756-8dd9-8bc3b6c4125e"
-            },
-            "vertices": [
-              {
-                "x": -290,
-                "y": -258
-              },
-              {
-                "x": -90,
-                "y": -330
-              }
-            ]
           },
           {
             "shape": "flow",
@@ -1604,19 +1569,98 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
                 "sourceMarker": {
-                  "name": ""
+                  "name": "block"
                 },
                 "strokeDasharray": null
               }
             },
             "width": 200,
             "height": 100,
-            "zIndex": 25,
+            "zIndex": 26,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Read/Write Order",
+              "description": "Pembacaan dan penyimpanan data pesanan oleh Order Service.",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": true,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "postgresql",
+              "threats": [
+                {
+                  "id": "099410c9-617b-417b-a86e-e307d14d79b9",
+                  "title": "Modifikasi Data Pesanan",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Penyerang dapat memodifikasi data pesanan secara tidak sah, seperti jumlah, detail, atau status pesanan, sehingga data transaksi tidak lagi sesuai dengan permintaan pengguna.",
+                  "mitigation": "Terapkan validasi input di sisi server, gunakan kontrol akses untuk membatasi perubahan data pesanan, dan gunakan transaksi database serta mekanisme integritas data untuk mencegah perubahan yang tidak sah.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 17,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [
+                "e0b9b972-ba2c-45ba-ae8a-002650a4f2ac",
+                "5a346009-a07e-4a86-acb1-ba22c0a35562"
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "Read/Write Order"
+            ],
+            "id": "b9473971-b03e-4c2d-bd3d-5fb8c29658ce",
+            "source": {
+              "cell": "3cab4ada-a247-4e13-b7e0-2400a253cf91",
+              "port": "02487600-3236-4a1c-9b95-bc5582c23e10"
+            },
+            "target": {
+              "cell": "49deda3a-f654-4372-88bc-a403de22ae57",
+              "port": "1a46d5fe-d7f7-4756-8dd9-8bc3b6c4125e"
+            },
+            "vertices": [
+              {
+                "x": -290,
+                "y": -258
+              },
+              {
+                "x": -90,
+                "y": -330
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 27,
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
@@ -1626,10 +1670,10 @@
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
-              "isBidirectional": false,
+              "isBidirectional": true,
               "isEncrypted": true,
               "isPublicNetwork": false,
-              "protocol": "https",
+              "protocol": "postgresql",
               "threats": [],
               "trustBoundaryIds": [
                 "e0b9b972-ba2c-45ba-ae8a-002650a4f2ac",
@@ -1656,6 +1700,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "April Rustianto",
-    "threatTop": 20
+    "threatTop": 22
   }
 }
